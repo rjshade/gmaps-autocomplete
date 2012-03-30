@@ -82,7 +82,7 @@ input {
   padding-bottom: 20px;
   color: #ccc;
 }
-#input #latitude, #input #longitude {
+#input #gmaps-output-latitude, #input #gmaps-output-longitude {
   color: green;
 }
 

@@ -46,10 +46,10 @@ function update_map( geometry ) {
 
 // fill in the UI elements with new position data
 function update_ui( address, latLng ) {
-  $('#address').autocomplete("close");
-  $('#address').val(address);
-  $('#latitude').html(latLng.lat());
-  $('#longitude').html(latLng.lng());
+  $('#gmaps-input-address').autocomplete("close");
+  $('#gmaps-input-address').val(address);
+  $('#gmaps-output-latitude').html(latLng.lat());
+  $('#gmaps-output-longitude').html(latLng.lng());
 }
 
 // Query the Google geocode object
@@ -102,7 +102,7 @@ function geocode_lookup( type, value, update ) {
 
 // initialise the jqueryUI autocomplete element
 function autocomplete_init() {
-  $("#address").autocomplete({
+  $("#gmaps-input-address").autocomplete({
 
     // source is the list of input options shown in the autocomplete dropdown.
     // see documentation: http://jqueryui.com/demos/autocomplete/
@@ -130,15 +130,15 @@ function autocomplete_init() {
   });
 
   // triggered when user presses a key in the address box
-  $("#address").bind('keydown', function(event) {
+  $("#gmaps-input-address").bind('keydown', function(event) {
     if(event.keyCode == 13) {
-      geocode_lookup( 'address', $('#address').val(), true );
+      geocode_lookup( 'address', $('#gmaps-input-address').val(), true );
 
       // ensures dropdown disappears when enter is pressed
-      $('#address').autocomplete("disable")
+      $('#gmaps-input-address').autocomplete("disable")
     } else {
       // re-enable if previously disabled above
-      $('#address').autocomplete("enable")
+      $('#gmaps-input-address').autocomplete("enable")
     }
   });
 }; // autocomplete_init
