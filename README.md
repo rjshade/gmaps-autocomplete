@@ -4,3 +4,4 @@ A simple demo showing how to use the jQuery UI autocomplete widget in conjunctio
 
 See it in action here: [rjshade.github.com/gmaps-autocomplete/](http://rjshade.github.com/gmaps-autocomplete/)
 
+Some more explanation here: [rjshade.com/2012/03/30/Google-Maps-autocomplete-with-jQuery-UI](/[http://www.rjshade.com/2012/03/30/Google-Maps-autocomplete-with-jQuery-UI/)
