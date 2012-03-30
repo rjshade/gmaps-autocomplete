@@ -1,0 +1,90 @@
+html {
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+hgroup, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+body {
+  color: #333;
+  margin: 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size:13px;
+}
+
+#gmaps-canvas {
+  height: 400px;
+
+  border: 1px solid #999;
+  -moz-box-shadow:    0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow:         0px 0px 5px #ccc;
+}
+
+#gmaps-error {
+  color: #cc0000;
+}
+
+h1 {
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+hr {
+  border: none;
+  padding: 5px;
+  border-bottom: 1px solid #efefef;
+}
+
+#container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid #999;
+  -moz-box-shadow:    0px 0px 15px #ccc;
+  -webkit-box-shadow: 0px 0px 15px #ccc;
+  box-shadow:         0px 0px 15px #ccc;
+}
+
+input {
+  width: 500px;
+}
+
+#results {
+  color: #555;
+  padding-top: 10px;
+}
+
+#input {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #ccc;
+}
+#input #latitude, #input #longitude {
+  color: green;
+}
+
+.download { float: right; }
+.footer { text-align:center; padding-top:30px; font-style: italic; }
