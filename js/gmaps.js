@@ -36,6 +36,8 @@ function gmaps_init(){
     marker.setPosition(event.latLng)
     geocode_lookup( 'latLng', event.latLng  );
   });
+
+  $('#gmaps-error').hide();
 }
 
 // move the marker to a new position, and center the map on it
@@ -69,6 +71,7 @@ function geocode_lookup( type, value, update ) {
 
   geocoder.geocode(request, function(results, status) {
     $('#gmaps-error').html('');
+    $('#gmaps-error').hide();
     if (status == google.maps.GeocoderStatus.OK) {
       // Google geocoding has succeeded!
       if (results[0]) {
@@ -81,6 +84,7 @@ function geocode_lookup( type, value, update ) {
       } else {
         // Geocoder status ok but no results!?
         $('#gmaps-error').html("Sorry, something went wrong. Try again!");
+        $('#gmaps-error').show();
       }
     } else {
       // Google Geocoding has failed. Two common reasons:
@@ -90,10 +94,12 @@ function geocode_lookup( type, value, update ) {
       if( type == 'address' ) {
         // User has typed in an address which we can't geocode to a location
         $('#gmaps-error').html("Sorry! We couldn't find " + value + ". Try a different search term, or click the map." );
+        $('#gmaps-error').show();
       } else {
         // User has clicked or dragged marker to somewhere that Google can't do a reverse lookup for
         // In this case we display a warning, clear the address box, but fill in LatLng
         $('#gmaps-error').html("Woah... that's pretty remote! You're going to have to manually enter a place name." );
+        $('#gmaps-error').show();
         update_ui('', value)
       }
     };
