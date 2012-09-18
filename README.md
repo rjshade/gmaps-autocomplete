@@ -11,3 +11,6 @@ I've had success using this with the [SimpleForm](https://github.com/plataformat
 
     = simple_form_for(@post) do |f|
         = f.input :address, :input_html =>{:id => 'gmaps-input-address'}, :placeholder => 'Start typing a place name...'
+
+## Get up and running
+Clone this repository and open `demo.html` in your browser.
