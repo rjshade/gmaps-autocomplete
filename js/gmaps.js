@@ -50,8 +50,8 @@ function update_map( geometry ) {
 function update_ui( address, latLng ) {
   $('#gmaps-input-address').autocomplete("close");
   $('#gmaps-input-address').val(address);
-  $('#gmaps-output-latitude').html(latLng.lat());
-  $('#gmaps-output-longitude').html(latLng.lng());
+  //$('#gmaps-output-latitude').html(latLng.lat());
+  //$('#gmaps-output-longitude').html(latLng.lng());
 }
 
 // Query the Google geocode object
