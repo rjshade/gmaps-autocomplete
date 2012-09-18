@@ -1,0 +1,47 @@
+---
+layout: default
+title: gmaps-autocomplete
+---
+
+<!-- ****************************************** -->
+<!-- for display on rjshade.com/projects        -->
+<!-- see demo.html for a simple working example -->
+<!-- ****************************************** -->
+
+<!-- google maps -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<!-- jquery -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<!-- jquery UI -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+
+<!-- our javascript -->
+<script type="text/javascript" src="js/gmaps.js"></script>
+
+<a href="https://github.com/rjshade/gmaps-autocomplete"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+
+<h1>Geocoding with Google Maps and jQuery UI</h1>
+<p>This page shows how you can use the <a href="http://jqueryui.com/demos/autocomplete/">autocomplete widget</a> from <a href="http://jqueryui.com/">jQuery UI</a> in conjunction with the <a href="https://developers.google.com/maps/documentation/javascript/reference">Google Maps geocoding API</a> .
+</p>
+<p>
+Start typing a in the search box to trigger the drop-down autocomplete menu. Reverse lookup is also implemented: click the map (or drag an existing marker) and the search box will be populated with the closest address Google can find.
+</p>
+<p>
+The source code is on GitHub: <a href="https://github.com/rjshade/gmaps-autocomplete">rjshade/gmaps-autocomplete</a>
+</p>
+
+<div id='input'>
+  <input id='gmaps-input-address' placeholder='Start typing a place name...' type='text' />
+  <br/>
+  <br/>
+  Latitude: <span id='gmaps-output-latitude'></span>
+  <br/>
+  Longitude: <span id='gmaps-output-longitude'></span>
+  <br/>
+
+  <div id='gmaps-error'></div>
+</div>
+
+<div id='gmaps-canvas'></div>

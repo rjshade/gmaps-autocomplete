@@ -2,7 +2,7 @@
 
 A simple demo showing how to use the jQuery UI autocomplete widget in conjunction with Google Maps geocoding service.
 
-See it in action here: [rjshade.github.com/gmaps-autocomplete/](http://rjshade.github.com/gmaps-autocomplete/)
+See it in action here: [rjshade.com/projects/gmaps-autocomplete/](http://rjshade.com/projects/gmaps-autocomplete/)
 
 Some more explanation here: [rjshade.com/2012/03/27/Google-Maps-autocomplete-with-jQuery-UI](http://rjshade.com/2012/03/27/Google-Maps-autocomplete-with-jQuery-UI/)
 
