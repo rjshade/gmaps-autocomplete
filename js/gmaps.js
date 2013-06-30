@@ -110,7 +110,6 @@ function geocode_lookup( type, value, update ) {
 // initialise the jqueryUI autocomplete element
 function autocomplete_init() {
 	$('input[id*="gmaps-input"]').each(function(index){
-		console.log($(this));
 	   $(this).autocomplete({
 
 	     // source is the list of input options shown in the autocomplete dropdown.
@@ -153,7 +152,7 @@ function autocomplete_init() {
 		 
 	   $(this).bind('focus', function(event) {
 			 elem = $(this);
-			 if (elem.val() && elem.attr('id').contains('gmaps-canvas')) {
+			 if (elem.val() && elem.attr('id').match('gmaps-canvas')) {
 				 geocode_lookup( 'address', $(this).val(), true );
 			 }
 	   });
