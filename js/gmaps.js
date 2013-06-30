@@ -48,8 +48,9 @@ function update_map( geometry ) {
 
 // fill in the UI elements with new position data
 function update_ui( address, latLng ) {
-  $('#gmaps-input-address').autocomplete("close");
-  $('#gmaps-input-address').val(address);
+	elem = $( document.activeElement );
+  elem.autocomplete("close");
+  elem.val(address);
   //$('#gmaps-output-latitude').html(latLng.lat());
   //$('#gmaps-output-longitude').html(latLng.lng());
 }
@@ -108,45 +109,56 @@ function geocode_lookup( type, value, update ) {
 
 // initialise the jqueryUI autocomplete element
 function autocomplete_init() {
-  $("#gmaps-input-address").autocomplete({
+	$('input[id*="gmaps-input"]').each(function(index){
+	   $(this).autocomplete({
 
-    // source is the list of input options shown in the autocomplete dropdown.
-    // see documentation: http://jqueryui.com/demos/autocomplete/
-    source: function(request,response) {
+	     // source is the list of input options shown in the autocomplete dropdown.
+	     // see documentation: http://jqueryui.com/demos/autocomplete/
+	     source: function(request,response) {
 
-      // the geocode method takes an address or LatLng to search for
-      // and a callback function which should process the results into
-      // a format accepted by jqueryUI autocomplete
-      geocoder.geocode( {'address': request.term }, function(results, status) {
-        response($.map(results, function(item) {
-          return {
-            label: item.formatted_address, // appears in dropdown box
-            value: item.formatted_address, // inserted into input element when selected
-            geocode: item                  // all geocode data: used in select callback event
-          }
-        }));
-      })
-    },
+	       // the geocode method takes an address or LatLng to search for
+	       // and a callback function which should process the results into
+	       // a format accepted by jqueryUI autocomplete
+	       geocoder.geocode( {'address': request.term }, function(results, status) {
+	         response($.map(results, function(item) {
+	           return {
+	             label: item.formatted_address, // appears in dropdown box
+	             value: item.formatted_address, // inserted into input element when selected
+	             geocode: item                  // all geocode data: used in select callback event
+	           }
+	         }));
+	       })
+	     },
 
-    // event triggered when drop-down option selected
-    select: function(event,ui){
-      update_ui(  ui.item.value, ui.item.geocode.geometry.location )
-      update_map( ui.item.geocode.geometry )
-    }
-  });
+	     // event triggered when drop-down option selected
+	     select: function(event,ui){
+	       update_ui(  ui.item.value, ui.item.geocode.geometry.location )
+	       update_map( ui.item.geocode.geometry )
+	     }
+	   });
 
-  // triggered when user presses a key in the address box
-  $("#gmaps-input-address").bind('keydown', function(event) {
-    if(event.keyCode == 13) {
-      geocode_lookup( 'address', $('#gmaps-input-address').val(), true );
+	   // triggered when user presses a key in the address box
+	   $(this).bind('keydown', function(event) {
+	     if(event.keyCode == 13) {
+	       geocode_lookup( 'address', $(this).val(), true );
 
-      // ensures dropdown disappears when enter is pressed
-      $('#gmaps-input-address').autocomplete("disable")
-    } else {
-      // re-enable if previously disabled above
-      $('#gmaps-input-address').autocomplete("enable")
-    }
-  });
+	       // ensures dropdown disappears when enter is pressed
+	       $(this).autocomplete("disable")
+	     } else {
+	       // re-enable if previously disabled above
+	       $(this).autocomplete("enable")
+	     }
+	   });
+		 
+	   $(this).bind('focus', function(event) {
+			 elem = $(this);
+			 if (elem.val() && elem.attr('id').match('gmaps-canvas')) {
+				 geocode_lookup( 'address', $(this).val(), true );
+			 }
+	   });
+		 
+	});
+
 }; // autocomplete_init
 
 $(document).ready(function() { 
